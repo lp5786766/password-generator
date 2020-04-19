@@ -2,6 +2,21 @@
     text-align: center;
 }
 
-.frame {
+.password-field {
     border: 5px solid limegreen; 
+    height: 180px;
+}
+
+.col-md-8 {
+    border: 2px solid gray;
+    margin-top: 20px;
+    height: 100px;
+}
+h2 {
+    margin: 25px;
+    color: darkgreen
+}
+
+button {
+    margin-top: 10px;
 }
