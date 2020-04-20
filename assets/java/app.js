@@ -37,10 +37,10 @@ function customizePassword() {
     customizeCharacters();
 
     function customizeCharacters() {
-        var hasLower = confirm("Do you want to use lowercase letters (abc...)? Yes - Ok, No - Cancel");
-        var hasUpper = confirm("Do you want to use uppercase letters (ABC...)? Yes - Ok, No - Cancel");
-        var hasSpecial = confirm("Do you want to use special characters (!@#$%^&*)? Yes - Ok, No - Cancel");
-        var hasNumbers = confirm("Do you want to use numbers (123...)? Yes - Ok, No - Cancel");
+        var hasLower = confirm("Do you want to use lowercase letters (abc...)? Ok - Yes, Cancel - No");
+        var hasUpper = confirm("Do you want to use uppercase letters (ABC...)? Ok - Yes, Cancel - No");
+        var hasSpecial = confirm("Do you want to use special characters (!@#$%^&*)? Ok - Yes, Cancel - No");
+        var hasNumbers = confirm("Do you want to use numbers (123...)? Ok - Yes, Cancel - No");
 
         if (hasLower === false && hasUpper === false && hasSpecial === false && hasNumbers === false) {
             alert("Sorry, you have to choose at least one option. Try again");
