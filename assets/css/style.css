@@ -5,10 +5,15 @@ h2 {
     font-size: 18px;
     margin-top: 10px;
 }
-
+.inline {
+    display: inline;
+}
+#lower-choice {
+    margin-top: 1rem;
+}
 .password-field {
     border: 5px solid limegreen; 
-    height: 400px;
+    height: 480px;
 }
 
 .col-md-8 {

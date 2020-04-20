@@ -1,8 +1,10 @@
 //create Array for each of character
+var lengthOutput = document.getElementById("length-choice");
 var lowerOutput = document.getElementById("lower-choice");
 var upperOutput = document.getElementById("upper-choice");
 var specialOutput = document.getElementById("special-choice");
 var numbersOutput = document.getElementById("numbers-choice");
+var passwordElement = document.getElementById("new-password");
 
 
 var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -10,25 +12,27 @@ var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
 var numbersArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var finalArray = [];
+var passwordArray = [];
 
 customizePassword();
-var passwordlength;
+
 //validate inputs:
 function customizePassword() {
 
-    //create if statements to make sure number (isNaN)
-    var howLong = prompt("How many characters?");
+    var passwordlength = prompt("How many characters?");
     //password too short?     //password too long?
-    if (howLong < 8 || howLong > 128) {
+    if (passwordlength < 8 || passwordlength > 128) {
         alert("Sorry, password should be between 8 and 128 characters. Try again");
         customizePassword();
         // if the user hits Cancel
-    } else if (howLong === null) {
+    } else if (passwordlength === null) {
         alert("Sorry, you have to choose the length. Try again");
         customizePassword();
-        // } else if (howLong)
+    } else if (isNaN(passwordlength)) {
+        alert("Sorry, please enter a number");
+        customizePassword();
     } else {
-        howLong = passwordlength;
+        lengthOutput.textContent = passwordlength;
     }
     customizeCharacters();
 
@@ -45,32 +49,59 @@ function customizePassword() {
         if (hasLower === true) {
             var addLower = finalArray.concat(lowerArray);
             finalArray = addLower;
-            console.log(finalArray);
+            lowerOutput.textContent = "Lower case: Yes";
+        } else {
+            lowerOutput.textContent = "Lower case: No";
         }
+
         if (hasUpper === true) {
             var addUpper = finalArray.concat(upperArray);
             finalArray = addUpper;
-            console.log(finalArray);
+            upperOutput.textContent = "Upper case: Yes";
+        } else {
+            upperOutput.textContent = "Upper case: No";
         }
+
         if (hasSpecial === true) {
             var addSpecial = finalArray.concat(specialArray);
             finalArray = addSpecial;
-            console.log(finalArray);
+            specialOutput.textContent = "Special characters: Yes";
+        } else {
+            specialOutput.textContent = "Special characters: No";
         }
+
         if (hasNumbers === true) {
             var addNumbers = finalArray.concat(numbersArray);
             finalArray = addNumbers;
-            console.log(finalArray);
+            numbersOutput.textContent = "Numbers: Yes";
+        } else {
+            numbersOutput.textContent = "Numbers: No";
         }
     }
-
-
 }
 
-// var passwordLength = howLong.value;
-console.log(passwordlength);
+var generateLength = parseInt(lengthOutput.textContent);
+console.log(parseInt(lengthOutput.textContent));
+console.log(finalArray);
 
-// newPassword = Math.floor(Math.random()* passwordLength)
+var generateButton = document.getElementById("generate");
+generateButton.addEventListener("click", function () {
+    generate();
+});
+
+
+
+// newPassword
+function generate() {
+    var finalArray = [];
+    for (i = 0; i < generateLength; i++) {
+        var passwordChar = finalArray[Math.floor(Math.random() * finalArray.length)];
+        var addChar = passwordArray.concat(passwordChar);
+        passwordArray = addChar;
+
+    }
+    passwordElement.textContent = passwordArray.join("");
+}
 
 
 
@@ -84,15 +115,6 @@ var customizeNewButton = document.getElementById("customize-new");
 customizeNewButton.addEventListener("click", function () {
     customizePassword();
 });
-
-//return;
-
-
-
-
-//create a final Array of Arrays, where random items from selected arrays are stored
-
-
 
 
 
