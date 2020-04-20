@@ -81,41 +81,30 @@ function customizePassword() {
 }
 
 var generateLength = parseInt(lengthOutput.textContent);
-console.log(parseInt(lengthOutput.textContent));
-console.log(finalArray);
 
+// Generate Button
 var generateButton = document.getElementById("generate");
 generateButton.addEventListener("click", function () {
-    generate();
+    generate()
 });
 
-
-
-// newPassword
+// new Password function
 function generate() {
-    var finalArray = [];
+
     for (i = 0; i < generateLength; i++) {
+        // choose letter
         var passwordChar = finalArray[Math.floor(Math.random() * finalArray.length)];
+        // concat chosen amount of letters
         var addChar = passwordArray.concat(passwordChar);
         passwordArray = addChar;
 
     }
     passwordElement.textContent = passwordArray.join("");
+    addChar.length = 0;
 }
 
-
-
-
-
-
-
-
-
+// Choose new Criteria Button
 var customizeNewButton = document.getElementById("customize-new");
 customizeNewButton.addEventListener("click", function () {
-    customizePassword();
+    location.reload();
 });
-
-
-
-//display the new password - append to the div
